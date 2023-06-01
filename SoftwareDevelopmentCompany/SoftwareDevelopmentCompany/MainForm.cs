@@ -44,8 +44,17 @@ namespace SoftwareDevelopmentCompany
 
         private void StaffToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StaffListForm fd = new StaffListForm();
-            fd.Show();
+            StaffListForm.fd.ShowForm();
+        }
+
+        private void ClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClientListForm.fw.ShowForm();
+        }
+
+        private void ProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProjectListForm.fw.ShowForm();
         }
     }
 }

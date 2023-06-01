@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientListForm.Designer.cs">
+      <DependentUpon>ClientListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectListForm.Designer.cs">
+      <DependentUpon>ProjectListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StaffListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +77,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SoftwareDevelopmentCompanyDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TestListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestListForm.Designer.cs">
+      <DependentUpon>TestListForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ClientListForm.resx">
+      <DependentUpon>ClientListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectListForm.resx">
+      <DependentUpon>ProjectListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StaffListForm.resx">
       <DependentUpon>StaffListForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,6 +105,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TestListForm.resx">
+      <DependentUpon>TestListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -106,8 +133,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\IconProject.png" />
     <None Include="Resources\IconStaff.png" />
     <None Include="Resources\IconApp.ico" />
+    <None Include="Resources\IconClient.png" />
     <Content Include="Resources\IconExit.png" />
     <None Include="Resources\IconInfo.png" />
   </ItemGroup>

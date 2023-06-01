@@ -12,9 +12,32 @@ namespace SoftwareDevelopmentCompany
 {
     public partial class StaffListForm : Form
     {
+        private string _fileImage = "";
+
+        private static StaffListForm f;
+
+        public static StaffListForm fd
+        {
+            get
+            {
+                if (f == null || f.IsDisposed)
+                {
+                    f = new StaffListForm();
+                }
+
+                return f;
+            }
+        }
+
         public StaffListForm()
         {
             InitializeComponent();
+        }
+
+        public void ShowForm()
+        {
+            Show();
+            Activate();
         }
 
         private void staffBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -46,6 +69,31 @@ namespace SoftwareDevelopmentCompany
             // TODO: данная строка кода позволяет загрузить данные в таблицу "softwareDevelopmentCompanyDataSet.Staff". При необходимости она может быть перемещена или удалена.
             this.staffTableAdapter.Fill(this.softwareDevelopmentCompanyDataSet.Staff);
 
+        }
+
+        private void ButtonOpenPhoto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialogPhoto.Title = "Specify the file for the photo";
+
+            if(OpenFileDialogPhoto.ShowDialog() == DialogResult.OK)
+            {
+                _fileImage = OpenFileDialogPhoto.FileName;
+                try
+                {
+                    PhotoPictureBox.Image =
+                        new Bitmap(OpenFileDialogPhoto.FileName);
+                }
+                catch
+                {
+                    MessageBox.Show("The wrong file format is selected",
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else
+            {
+                _fileImage = "";
+            }
         }
     }
 }

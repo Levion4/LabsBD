@@ -73,6 +73,16 @@ namespace SoftwareDevelopmentCompany.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IconClient {
+            get {
+                object obj = ResourceManager.GetObject("IconClient", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IconExit {
             get {
                 object obj = ResourceManager.GetObject("IconExit", resourceCulture);
@@ -86,6 +96,16 @@ namespace SoftwareDevelopmentCompany.Properties {
         internal static System.Drawing.Bitmap IconInfo {
             get {
                 object obj = ResourceManager.GetObject("IconInfo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconProject {
+            get {
+                object obj = ResourceManager.GetObject("IconProject", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -36,16 +36,24 @@
             this.AboutTheProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ReferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StaffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DocumentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ContextMenuStripMainForm = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.FileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ReferencesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.StaffToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClientToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.DocumentsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ProjectToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMainForm = new System.Windows.Forms.ToolStrip();
             this.ToolStripButtonExit = new System.Windows.Forms.ToolStripButton();
             this.ToolStripButtonAboutTheProgram = new System.Windows.Forms.ToolStripButton();
-            this.ReferencesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.StaffToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.StaffToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.ClientToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.ProjectToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.MenuStripMainForm.SuspendLayout();
             this.ContextMenuStripMainForm.SuspendLayout();
             this.ToolStripMainForm.SuspendLayout();
@@ -56,10 +64,11 @@
             this.MenuStripMainForm.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.MenuStripMainForm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileToolStripMenuItem,
-            this.ReferencesToolStripMenuItem});
+            this.ReferencesToolStripMenuItem,
+            this.DocumentsToolStripMenuItem});
             this.MenuStripMainForm.Location = new System.Drawing.Point(0, 0);
             this.MenuStripMainForm.Name = "MenuStripMainForm";
-            this.MenuStripMainForm.Size = new System.Drawing.Size(800, 28);
+            this.MenuStripMainForm.Size = new System.Drawing.Size(800, 30);
             this.MenuStripMainForm.TabIndex = 0;
             this.MenuStripMainForm.Text = "menuStrip1";
             // 
@@ -69,7 +78,7 @@
             this.ExitToolStripMenuItem,
             this.AboutTheProgramToolStripMenuItem});
             this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
-            this.FileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.FileToolStripMenuItem.Size = new System.Drawing.Size(46, 26);
             this.FileToolStripMenuItem.Text = "File";
             // 
             // ExitToolStripMenuItem
@@ -93,27 +102,53 @@
             // ReferencesToolStripMenuItem
             // 
             this.ReferencesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.StaffToolStripMenuItem});
+            this.StaffToolStripMenuItem,
+            this.ClientToolStripMenuItem});
             this.ReferencesToolStripMenuItem.Name = "ReferencesToolStripMenuItem";
-            this.ReferencesToolStripMenuItem.Size = new System.Drawing.Size(95, 24);
+            this.ReferencesToolStripMenuItem.Size = new System.Drawing.Size(95, 26);
             this.ReferencesToolStripMenuItem.Text = "References";
             // 
             // StaffToolStripMenuItem
             // 
             this.StaffToolStripMenuItem.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconStaff;
             this.StaffToolStripMenuItem.Name = "StaffToolStripMenuItem";
-            this.StaffToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.StaffToolStripMenuItem.Size = new System.Drawing.Size(130, 26);
             this.StaffToolStripMenuItem.Text = "Staff";
             this.StaffToolStripMenuItem.Click += new System.EventHandler(this.StaffToolStripMenuItem_Click);
+            // 
+            // ClientToolStripMenuItem
+            // 
+            this.ClientToolStripMenuItem.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconClient;
+            this.ClientToolStripMenuItem.Name = "ClientToolStripMenuItem";
+            this.ClientToolStripMenuItem.Size = new System.Drawing.Size(130, 26);
+            this.ClientToolStripMenuItem.Text = "Client";
+            this.ClientToolStripMenuItem.Click += new System.EventHandler(this.ClientToolStripMenuItem_Click);
+            // 
+            // DocumentsToolStripMenuItem
+            // 
+            this.DocumentsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ProjectToolStripMenuItem});
+            this.DocumentsToolStripMenuItem.Name = "DocumentsToolStripMenuItem";
+            this.DocumentsToolStripMenuItem.Size = new System.Drawing.Size(98, 26);
+            this.DocumentsToolStripMenuItem.Text = "Documents";
+            // 
+            // ProjectToolStripMenuItem
+            // 
+            this.ProjectToolStripMenuItem.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconProject;
+            this.ProjectToolStripMenuItem.Name = "ProjectToolStripMenuItem";
+            this.ProjectToolStripMenuItem.Size = new System.Drawing.Size(138, 26);
+            this.ProjectToolStripMenuItem.Text = "Project";
+            this.ProjectToolStripMenuItem.Click += new System.EventHandler(this.ProjectToolStripMenuItem_Click);
             // 
             // ContextMenuStripMainForm
             // 
             this.ContextMenuStripMainForm.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ContextMenuStripMainForm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileToolStripMenuItem1,
-            this.ReferencesToolStripMenuItem1});
+            this.ReferencesToolStripMenuItem1,
+            this.DocumentsToolStripMenuItem1});
             this.ContextMenuStripMainForm.Name = "ContextMenuStripMainForm";
-            this.ContextMenuStripMainForm.Size = new System.Drawing.Size(211, 80);
+            this.ContextMenuStripMainForm.Size = new System.Drawing.Size(154, 76);
             // 
             // FileToolStripMenuItem1
             // 
@@ -121,7 +156,7 @@
             this.ExitToolStripMenuItem1,
             this.AboutToolStripMenuItem});
             this.FileToolStripMenuItem1.Name = "FileToolStripMenuItem1";
-            this.FileToolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
+            this.FileToolStripMenuItem1.Size = new System.Drawing.Size(153, 24);
             this.FileToolStripMenuItem1.Text = "File";
             // 
             // ExitToolStripMenuItem1
@@ -140,16 +175,59 @@
             this.AboutToolStripMenuItem.Text = "About the program...";
             this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutTheProgramToolStripMenuItem_Click);
             // 
+            // ReferencesToolStripMenuItem1
+            // 
+            this.ReferencesToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StaffToolStripMenuItem1,
+            this.ClientToolStripMenuItem1});
+            this.ReferencesToolStripMenuItem1.Name = "ReferencesToolStripMenuItem1";
+            this.ReferencesToolStripMenuItem1.Size = new System.Drawing.Size(153, 24);
+            this.ReferencesToolStripMenuItem1.Text = "References";
+            // 
+            // StaffToolStripMenuItem1
+            // 
+            this.StaffToolStripMenuItem1.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconStaff;
+            this.StaffToolStripMenuItem1.Name = "StaffToolStripMenuItem1";
+            this.StaffToolStripMenuItem1.Size = new System.Drawing.Size(130, 26);
+            this.StaffToolStripMenuItem1.Text = "Staff";
+            this.StaffToolStripMenuItem1.Click += new System.EventHandler(this.StaffToolStripMenuItem_Click);
+            // 
+            // ClientToolStripMenuItem1
+            // 
+            this.ClientToolStripMenuItem1.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconClient;
+            this.ClientToolStripMenuItem1.Name = "ClientToolStripMenuItem1";
+            this.ClientToolStripMenuItem1.Size = new System.Drawing.Size(130, 26);
+            this.ClientToolStripMenuItem1.Text = "Client";
+            this.ClientToolStripMenuItem1.Click += new System.EventHandler(this.ClientToolStripMenuItem_Click);
+            // 
+            // DocumentsToolStripMenuItem1
+            // 
+            this.DocumentsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ProjectToolStripMenuItem1});
+            this.DocumentsToolStripMenuItem1.Name = "DocumentsToolStripMenuItem1";
+            this.DocumentsToolStripMenuItem1.Size = new System.Drawing.Size(153, 24);
+            this.DocumentsToolStripMenuItem1.Text = "Documents";
+            // 
+            // ProjectToolStripMenuItem1
+            // 
+            this.ProjectToolStripMenuItem1.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconProject;
+            this.ProjectToolStripMenuItem1.Name = "ProjectToolStripMenuItem1";
+            this.ProjectToolStripMenuItem1.Size = new System.Drawing.Size(138, 26);
+            this.ProjectToolStripMenuItem1.Text = "Project";
+            this.ProjectToolStripMenuItem1.Click += new System.EventHandler(this.ProjectToolStripMenuItem_Click);
+            // 
             // ToolStripMainForm
             // 
             this.ToolStripMainForm.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ToolStripMainForm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripButtonExit,
             this.ToolStripButtonAboutTheProgram,
-            this.StaffToolStripButton});
-            this.ToolStripMainForm.Location = new System.Drawing.Point(0, 28);
+            this.StaffToolStripButton,
+            this.ClientToolStripButton,
+            this.ProjectToolStripButton});
+            this.ToolStripMainForm.Location = new System.Drawing.Point(0, 30);
             this.ToolStripMainForm.Name = "ToolStripMainForm";
-            this.ToolStripMainForm.Size = new System.Drawing.Size(800, 27);
+            this.ToolStripMainForm.Size = new System.Drawing.Size(800, 31);
             this.ToolStripMainForm.TabIndex = 2;
             this.ToolStripMainForm.Text = "toolStrip1";
             // 
@@ -159,7 +237,7 @@
             this.ToolStripButtonExit.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconExit;
             this.ToolStripButtonExit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolStripButtonExit.Name = "ToolStripButtonExit";
-            this.ToolStripButtonExit.Size = new System.Drawing.Size(29, 24);
+            this.ToolStripButtonExit.Size = new System.Drawing.Size(29, 28);
             this.ToolStripButtonExit.Text = "ToolStripButtonExit";
             this.ToolStripButtonExit.ToolTipText = "Close the program";
             this.ToolStripButtonExit.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
@@ -170,26 +248,10 @@
             this.ToolStripButtonAboutTheProgram.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconInfo;
             this.ToolStripButtonAboutTheProgram.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolStripButtonAboutTheProgram.Name = "ToolStripButtonAboutTheProgram";
-            this.ToolStripButtonAboutTheProgram.Size = new System.Drawing.Size(29, 24);
+            this.ToolStripButtonAboutTheProgram.Size = new System.Drawing.Size(29, 28);
             this.ToolStripButtonAboutTheProgram.Text = "ToolStripButtonAboutTheProgram";
             this.ToolStripButtonAboutTheProgram.ToolTipText = "About the program";
             this.ToolStripButtonAboutTheProgram.Click += new System.EventHandler(this.AboutTheProgramToolStripMenuItem_Click);
-            // 
-            // ReferencesToolStripMenuItem1
-            // 
-            this.ReferencesToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.StaffToolStripMenuItem1});
-            this.ReferencesToolStripMenuItem1.Name = "ReferencesToolStripMenuItem1";
-            this.ReferencesToolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
-            this.ReferencesToolStripMenuItem1.Text = "References";
-            // 
-            // StaffToolStripMenuItem1
-            // 
-            this.StaffToolStripMenuItem1.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconStaff;
-            this.StaffToolStripMenuItem1.Name = "StaffToolStripMenuItem1";
-            this.StaffToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.StaffToolStripMenuItem1.Text = "Staff";
-            this.StaffToolStripMenuItem1.Click += new System.EventHandler(this.StaffToolStripMenuItem_Click);
             // 
             // StaffToolStripButton
             // 
@@ -197,9 +259,29 @@
             this.StaffToolStripButton.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconStaff;
             this.StaffToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.StaffToolStripButton.Name = "StaffToolStripButton";
-            this.StaffToolStripButton.Size = new System.Drawing.Size(29, 24);
-            this.StaffToolStripButton.Text = "StaffToolStripButton";
+            this.StaffToolStripButton.Size = new System.Drawing.Size(29, 28);
+            this.StaffToolStripButton.Text = "List of staff";
             this.StaffToolStripButton.Click += new System.EventHandler(this.StaffToolStripMenuItem_Click);
+            // 
+            // ClientToolStripButton
+            // 
+            this.ClientToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ClientToolStripButton.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconClient;
+            this.ClientToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ClientToolStripButton.Name = "ClientToolStripButton";
+            this.ClientToolStripButton.Size = new System.Drawing.Size(29, 28);
+            this.ClientToolStripButton.Text = "List of client";
+            this.ClientToolStripButton.Click += new System.EventHandler(this.ClientToolStripMenuItem_Click);
+            // 
+            // ProjectToolStripButton
+            // 
+            this.ProjectToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ProjectToolStripButton.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconProject;
+            this.ProjectToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ProjectToolStripButton.Name = "ProjectToolStripButton";
+            this.ProjectToolStripButton.Size = new System.Drawing.Size(29, 28);
+            this.ProjectToolStripButton.Text = "List of project";
+            this.ProjectToolStripButton.Click += new System.EventHandler(this.ProjectToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -214,7 +296,7 @@
             this.Location = global::SoftwareDevelopmentCompany.Properties.Settings.Default.FormPosss;
             this.MainMenuStrip = this.MenuStripMainForm;
             this.Name = "MainForm";
-            this.Text = "SoftwareDevelopmentCompany";
+            this.Text = "Program for software development company";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.MenuStripMainForm.ResumeLayout(false);
@@ -245,6 +327,14 @@
         private System.Windows.Forms.ToolStripMenuItem ReferencesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem StaffToolStripMenuItem1;
         private System.Windows.Forms.ToolStripButton StaffToolStripButton;
+        private System.Windows.Forms.ToolStripMenuItem ClientToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ClientToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripButton ClientToolStripButton;
+        private System.Windows.Forms.ToolStripMenuItem DocumentsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ProjectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DocumentsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ProjectToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripButton ProjectToolStripButton;
     }
 }
 
