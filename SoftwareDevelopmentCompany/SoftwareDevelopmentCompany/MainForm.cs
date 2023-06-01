@@ -40,6 +40,7 @@ namespace SoftwareDevelopmentCompany
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Settings.Default.Save();
+
         }
 
         private void StaffToolStripMenuItem_Click(object sender, EventArgs e)
