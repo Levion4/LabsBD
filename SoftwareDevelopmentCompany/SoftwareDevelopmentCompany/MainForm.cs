@@ -57,5 +57,20 @@ namespace SoftwareDevelopmentCompany
         {
             ProjectListForm.fw.ShowForm();
         }
+
+        private void ProjectRoleStaffToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProjectRoleStaffListForm.fw.ShowForm();
+        }
+
+        private void TestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TestListForm.fw.ShowForm();
+        }
+
+        private void TechnicalDocumentationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TechnicalDocumentationListForm.fw.ShowForm();
+        }
     }
 }

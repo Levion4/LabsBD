@@ -10,24 +10,24 @@ using System.Windows.Forms;
 
 namespace SoftwareDevelopmentCompany
 {
-    public partial class TestListForm : Form
+    public partial class TechnicalDocumentationListForm : Form
     {
-        private static TestListForm f;
+        private static TechnicalDocumentationListForm f;
 
-        public static TestListForm fw
+        public static TechnicalDocumentationListForm fw
         {
             get
             {
                 if (f == null || f.IsDisposed)
                 {
-                    f = new TestListForm();
+                    f = new TechnicalDocumentationListForm();
                 }
 
                 return f;
             }
         }
 
-        public TestListForm()
+        public TechnicalDocumentationListForm()
         {
             InitializeComponent();
         }
@@ -46,27 +46,20 @@ namespace SoftwareDevelopmentCompany
 
         }
 
-        private void projectBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        private void TechnicalDocumentationListForm_Load(object sender, EventArgs e)
         {
-            this.Validate();
-            this.projectBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.softwareDevelopmentCompanyDataSet);
-
-        }
-
-        private void TestsListForm_Load(object sender, EventArgs e)
-        {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "softwareDevelopmentCompanyDataSet.Test". При необходимости она может быть перемещена или удалена.
-            this.testTableAdapter.Fill(this.softwareDevelopmentCompanyDataSet.Test);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "softwareDevelopmentCompanyDataSet.TechnicalDocumentation". При необходимости она может быть перемещена или удалена.
+            this.technicalDocumentationTableAdapter.Fill(this.softwareDevelopmentCompanyDataSet.TechnicalDocumentation);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "softwareDevelopmentCompanyDataSet.Project". При необходимости она может быть перемещена или удалена.
             this.projectTableAdapter.Fill(this.softwareDevelopmentCompanyDataSet.Project);
-
+            softwareDevelopmentCompanyDataSet.TechnicalDocumentation.
+                Columns["DateOfCreation"].DefaultValue = DateTime.Now;
         }
 
-        private void TestBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void TDBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.testBindingSource.EndEdit();
+            this.technicalDocumentationBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.softwareDevelopmentCompanyDataSet);
         }
     }

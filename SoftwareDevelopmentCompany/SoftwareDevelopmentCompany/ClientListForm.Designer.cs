@@ -47,10 +47,16 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.clientBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.OKToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.FindToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.FindToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ClientDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InformationOrganization = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FindCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.softwareDevelopmentCompanyDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingNavigator)).BeginInit();
@@ -103,7 +109,11 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.clientBindingNavigatorSaveItem});
+            this.clientBindingNavigatorSaveItem,
+            this.toolStripSeparator1,
+            this.OKToolStripButton,
+            this.FindToolStripTextBox,
+            this.FindToolStripButton});
             this.clientBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.clientBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.clientBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -111,7 +121,7 @@
             this.clientBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.clientBindingNavigator.Name = "clientBindingNavigator";
             this.clientBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.clientBindingNavigator.Size = new System.Drawing.Size(660, 31);
+            this.clientBindingNavigator.Size = new System.Drawing.Size(930, 31);
             this.clientBindingNavigator.TabIndex = 0;
             this.clientBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -210,6 +220,39 @@
             this.clientBindingNavigatorSaveItem.Text = "Save data";
             this.clientBindingNavigatorSaveItem.Click += new System.EventHandler(this.clientBindingNavigatorSaveItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
+            // 
+            // OKToolStripButton
+            // 
+            this.OKToolStripButton.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconClient;
+            this.OKToolStripButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OKToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.OKToolStripButton.Name = "OKToolStripButton";
+            this.OKToolStripButton.Size = new System.Drawing.Size(82, 28);
+            this.OKToolStripButton.Text = "Сhoose";
+            this.OKToolStripButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.OKToolStripButton.Click += new System.EventHandler(this.OKToolStripButton_Click);
+            // 
+            // FindToolStripTextBox
+            // 
+            this.FindToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.FindToolStripTextBox.Name = "FindToolStripTextBox";
+            this.FindToolStripTextBox.Size = new System.Drawing.Size(100, 31);
+            // 
+            // FindToolStripButton
+            // 
+            this.FindToolStripButton.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconSearch;
+            this.FindToolStripButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.FindToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.FindToolStripButton.Name = "FindToolStripButton";
+            this.FindToolStripButton.Size = new System.Drawing.Size(77, 28);
+            this.FindToolStripButton.Text = "Search";
+            this.FindToolStripButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.FindToolStripButton.Click += new System.EventHandler(this.FindToolStripButton_Click);
+            // 
             // ClientDataGridView
             // 
             this.ClientDataGridView.AutoGenerateColumns = false;
@@ -217,14 +260,15 @@
             this.ClientDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
+            this.dataGridViewTextBoxColumn3,
+            this.InformationOrganization});
             this.ClientDataGridView.DataSource = this.clientBindingSource;
             this.ClientDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ClientDataGridView.Location = new System.Drawing.Point(0, 31);
             this.ClientDataGridView.Name = "ClientDataGridView";
             this.ClientDataGridView.RowHeadersWidth = 51;
             this.ClientDataGridView.RowTemplate.Height = 24;
-            this.ClientDataGridView.Size = new System.Drawing.Size(660, 310);
+            this.ClientDataGridView.Size = new System.Drawing.Size(930, 310);
             this.ClientDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -242,7 +286,7 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "OrganizationName";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 125;
+            this.dataGridViewTextBoxColumn2.Width = 200;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -250,18 +294,40 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "FullNameDirector";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 125;
+            this.dataGridViewTextBoxColumn3.Width = 200;
+            // 
+            // InformationOrganization
+            // 
+            this.InformationOrganization.DataPropertyName = "InformationOrganization";
+            this.InformationOrganization.HeaderText = "InformationOrganization";
+            this.InformationOrganization.MinimumWidth = 6;
+            this.InformationOrganization.Name = "InformationOrganization";
+            this.InformationOrganization.ReadOnly = true;
+            this.InformationOrganization.Width = 350;
+            // 
+            // FindCheckBox
+            // 
+            this.FindCheckBox.AutoSize = true;
+            this.FindCheckBox.Location = new System.Drawing.Point(654, 5);
+            this.FindCheckBox.Name = "FindCheckBox";
+            this.FindCheckBox.Size = new System.Drawing.Size(58, 20);
+            this.FindCheckBox.TabIndex = 2;
+            this.FindCheckBox.Text = "Filter";
+            this.FindCheckBox.UseVisualStyleBackColor = true;
+            this.FindCheckBox.CheckedChanged += new System.EventHandler(this.FindCheckBox_CheckedChanged);
             // 
             // ClientListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(660, 341);
+            this.ClientSize = new System.Drawing.Size(930, 341);
+            this.Controls.Add(this.FindCheckBox);
             this.Controls.Add(this.ClientDataGridView);
             this.Controls.Add(this.clientBindingNavigator);
             this.Name = "ClientListForm";
             this.Text = "List of client";
             this.Load += new System.EventHandler(this.ClientListForm_Load);
+            this.Shown += new System.EventHandler(this.ClientListForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.softwareDevelopmentCompanyDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingNavigator)).EndInit();
@@ -293,8 +359,14 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton clientBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView ClientDataGridView;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripTextBox FindToolStripTextBox;
+        private System.Windows.Forms.ToolStripButton FindToolStripButton;
+        private System.Windows.Forms.CheckBox FindCheckBox;
+        private System.Windows.Forms.ToolStripButton OKToolStripButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn InformationOrganization;
     }
 }

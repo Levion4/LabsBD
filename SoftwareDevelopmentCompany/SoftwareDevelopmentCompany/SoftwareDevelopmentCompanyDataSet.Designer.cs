@@ -57,6 +57,7 @@ namespace SoftwareDevelopmentCompany {
             base.Tables.CollectionChanged += schemaChangedHandler;
             base.Relations.CollectionChanged += schemaChangedHandler;
             this.EndInit();
+            this.InitExpressions();
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -68,6 +69,9 @@ namespace SoftwareDevelopmentCompany {
                 global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
                 this.Tables.CollectionChanged += schemaChangedHandler1;
                 this.Relations.CollectionChanged += schemaChangedHandler1;
+                if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.ExcludeSchema)) {
+                    this.InitExpressions();
+                }
                 return;
             }
             string strSchema = ((string)(info.GetValue("XmlSchema", typeof(string))));
@@ -103,6 +107,7 @@ namespace SoftwareDevelopmentCompany {
             }
             else {
                 this.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                this.InitExpressions();
             }
             this.GetSerializationData(info, context);
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -214,6 +219,7 @@ namespace SoftwareDevelopmentCompany {
         public override global::System.Data.DataSet Clone() {
             SoftwareDevelopmentCompanyDataSet cln = ((SoftwareDevelopmentCompanyDataSet)(base.Clone()));
             cln.InitVars();
+            cln.InitExpressions();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
         }
@@ -339,13 +345,13 @@ namespace SoftwareDevelopmentCompany {
             this.Namespace = "http://tempuri.org/SoftwareDevelopmentCompanyDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableClient = new ClientDataTable();
+            this.tableClient = new ClientDataTable(false);
             base.Tables.Add(this.tableClient);
-            this.tableProject = new ProjectDataTable();
+            this.tableProject = new ProjectDataTable(false);
             base.Tables.Add(this.tableProject);
-            this.tableRoleStaff = new RoleStaffDataTable();
+            this.tableRoleStaff = new RoleStaffDataTable(false);
             base.Tables.Add(this.tableRoleStaff);
-            this.tableStaff = new StaffDataTable();
+            this.tableStaff = new StaffDataTable(false);
             base.Tables.Add(this.tableStaff);
             this.tableTechnicalDocumentation = new TechnicalDocumentationDataTable();
             base.Tables.Add(this.tableTechnicalDocumentation);
@@ -464,6 +470,17 @@ namespace SoftwareDevelopmentCompany {
             return type;
         }
         
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitExpressions() {
+            this.Client.InformationOrganizationColumn.Expression = "IdClient+\': Organization name - \'+OrganizationName+\'; Full name director - \'+Full" +
+                "NameDirector";
+            this.Project.RemainingMoneyColumn.Expression = "Budget-CashCosts";
+            this.Project.ClientColumn.Expression = "Parent(FK_Project_Client).InformationOrganization";
+            this.RoleStaff.AboutEmployeeColumn.Expression = "Parent(FK_RoleStaff_Staff).Info";
+            this.Staff.InfoColumn.Expression = "IdStaff+\' \'+FullName+\' - \'+Post";
+        }
+        
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void ClientRowChangeEventHandler(object sender, ClientRowChangeEvent e);
         
@@ -495,12 +512,23 @@ namespace SoftwareDevelopmentCompany {
             
             private global::System.Data.DataColumn columnFullNameDirector;
             
+            private global::System.Data.DataColumn columnInformationOrganization;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientDataTable() {
+            public ClientDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ClientDataTable(bool initExpressions) {
                 this.TableName = "Client";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -554,6 +582,14 @@ namespace SoftwareDevelopmentCompany {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn InformationOrganizationColumn {
+                get {
+                    return this.columnInformationOrganization;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -589,12 +625,27 @@ namespace SoftwareDevelopmentCompany {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ClientRow AddClientRow(string OrganizationName, string FullNameDirector, string InformationOrganization) {
+                ClientRow rowClientRow = ((ClientRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        OrganizationName,
+                        FullNameDirector,
+                        InformationOrganization};
+                rowClientRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowClientRow);
+                return rowClientRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ClientRow AddClientRow(string OrganizationName, string FullNameDirector) {
                 ClientRow rowClientRow = ((ClientRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         OrganizationName,
-                        FullNameDirector};
+                        FullNameDirector,
+                        null};
                 rowClientRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowClientRow);
                 return rowClientRow;
@@ -627,6 +678,7 @@ namespace SoftwareDevelopmentCompany {
                 this.columnIdClient = base.Columns["IdClient"];
                 this.columnOrganizationName = base.Columns["OrganizationName"];
                 this.columnFullNameDirector = base.Columns["FullNameDirector"];
+                this.columnInformationOrganization = base.Columns["InformationOrganization"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -638,6 +690,8 @@ namespace SoftwareDevelopmentCompany {
                 base.Columns.Add(this.columnOrganizationName);
                 this.columnFullNameDirector = new global::System.Data.DataColumn("FullNameDirector", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFullNameDirector);
+                this.columnInformationOrganization = new global::System.Data.DataColumn("InformationOrganization", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInformationOrganization);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdClient}, true));
                 this.columnIdClient.AutoIncrement = true;
@@ -649,6 +703,7 @@ namespace SoftwareDevelopmentCompany {
                 this.columnOrganizationName.MaxLength = 50;
                 this.columnFullNameDirector.AllowDBNull = false;
                 this.columnFullNameDirector.MaxLength = 50;
+                this.columnInformationOrganization.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -667,6 +722,13 @@ namespace SoftwareDevelopmentCompany {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(ClientRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitExpressions() {
+                this.InformationOrganizationColumn.Expression = "IdClient+\': Organization name - \'+OrganizationName+\'; Full name director - \'+Full" +
+                    "NameDirector";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -794,12 +856,25 @@ namespace SoftwareDevelopmentCompany {
             
             private global::System.Data.DataColumn columnIdClient;
             
+            private global::System.Data.DataColumn columnRemainingMoney;
+            
+            private global::System.Data.DataColumn columnClient;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ProjectDataTable() {
+            public ProjectDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ProjectDataTable(bool initExpressions) {
                 this.TableName = "Project";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -877,6 +952,22 @@ namespace SoftwareDevelopmentCompany {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RemainingMoneyColumn {
+                get {
+                    return this.columnRemainingMoney;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ClientColumn {
+                get {
+                    return this.columnClient;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -912,6 +1003,27 @@ namespace SoftwareDevelopmentCompany {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ProjectRow AddProjectRow(float CashCosts, float Budget, string Title, bool ActOfImplementation, ClientRow parentClientRowByFK_Project_Client, decimal RemainingMoney, string Client) {
+                ProjectRow rowProjectRow = ((ProjectRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        CashCosts,
+                        Budget,
+                        Title,
+                        ActOfImplementation,
+                        null,
+                        RemainingMoney,
+                        Client};
+                if ((parentClientRowByFK_Project_Client != null)) {
+                    columnValuesArray[5] = parentClientRowByFK_Project_Client[0];
+                }
+                rowProjectRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowProjectRow);
+                return rowProjectRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ProjectRow AddProjectRow(float CashCosts, float Budget, string Title, bool ActOfImplementation, ClientRow parentClientRowByFK_Project_Client) {
                 ProjectRow rowProjectRow = ((ProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -920,6 +1032,8 @@ namespace SoftwareDevelopmentCompany {
                         Budget,
                         Title,
                         ActOfImplementation,
+                        null,
+                        null,
                         null};
                 if ((parentClientRowByFK_Project_Client != null)) {
                     columnValuesArray[5] = parentClientRowByFK_Project_Client[0];
@@ -959,6 +1073,8 @@ namespace SoftwareDevelopmentCompany {
                 this.columnTitle = base.Columns["Title"];
                 this.columnActOfImplementation = base.Columns["ActOfImplementation"];
                 this.columnIdClient = base.Columns["IdClient"];
+                this.columnRemainingMoney = base.Columns["RemainingMoney"];
+                this.columnClient = base.Columns["Client"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -976,6 +1092,10 @@ namespace SoftwareDevelopmentCompany {
                 base.Columns.Add(this.columnActOfImplementation);
                 this.columnIdClient = new global::System.Data.DataColumn("IdClient", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIdClient);
+                this.columnRemainingMoney = new global::System.Data.DataColumn("RemainingMoney", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRemainingMoney);
+                this.columnClient = new global::System.Data.DataColumn("Client", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnClient);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdProject}, true));
                 this.columnIdProject.AutoIncrement = true;
@@ -983,9 +1103,13 @@ namespace SoftwareDevelopmentCompany {
                 this.columnIdProject.AllowDBNull = false;
                 this.columnIdProject.ReadOnly = true;
                 this.columnIdProject.Unique = true;
+                this.columnCashCosts.DefaultValue = ((float)(0F));
+                this.columnBudget.DefaultValue = ((float)(0F));
                 this.columnTitle.AllowDBNull = false;
                 this.columnTitle.MaxLength = 50;
                 this.columnIdClient.AllowDBNull = false;
+                this.columnRemainingMoney.ReadOnly = true;
+                this.columnClient.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1004,6 +1128,13 @@ namespace SoftwareDevelopmentCompany {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(ProjectRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitExpressions() {
+                this.RemainingMoneyColumn.Expression = "Budget-CashCosts";
+                this.ClientColumn.Expression = "Parent(FK_Project_Client).InformationOrganization";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1125,12 +1256,23 @@ namespace SoftwareDevelopmentCompany {
             
             private global::System.Data.DataColumn columnRole;
             
+            private global::System.Data.DataColumn columnAboutEmployee;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public RoleStaffDataTable() {
+            public RoleStaffDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public RoleStaffDataTable(bool initExpressions) {
                 this.TableName = "RoleStaff";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -1184,6 +1326,14 @@ namespace SoftwareDevelopmentCompany {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AboutEmployeeColumn {
+                get {
+                    return this.columnAboutEmployee;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1219,12 +1369,33 @@ namespace SoftwareDevelopmentCompany {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public RoleStaffRow AddRoleStaffRow(StaffRow parentStaffRowByFK_RoleStaff_Staff, ProjectRow parentProjectRowByFK_RoleStaff_Project, string Role, string AboutEmployee) {
+                RoleStaffRow rowRoleStaffRow = ((RoleStaffRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        Role,
+                        AboutEmployee};
+                if ((parentStaffRowByFK_RoleStaff_Staff != null)) {
+                    columnValuesArray[0] = parentStaffRowByFK_RoleStaff_Staff[0];
+                }
+                if ((parentProjectRowByFK_RoleStaff_Project != null)) {
+                    columnValuesArray[1] = parentProjectRowByFK_RoleStaff_Project[0];
+                }
+                rowRoleStaffRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowRoleStaffRow);
+                return rowRoleStaffRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public RoleStaffRow AddRoleStaffRow(StaffRow parentStaffRowByFK_RoleStaff_Staff, ProjectRow parentProjectRowByFK_RoleStaff_Project, string Role) {
                 RoleStaffRow rowRoleStaffRow = ((RoleStaffRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
-                        Role};
+                        Role,
+                        null};
                 if ((parentStaffRowByFK_RoleStaff_Staff != null)) {
                     columnValuesArray[0] = parentStaffRowByFK_RoleStaff_Staff[0];
                 }
@@ -1264,6 +1435,7 @@ namespace SoftwareDevelopmentCompany {
                 this.columnIdStaff = base.Columns["IdStaff"];
                 this.columnIdProject = base.Columns["IdProject"];
                 this.columnRole = base.Columns["Role"];
+                this.columnAboutEmployee = base.Columns["AboutEmployee"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1275,6 +1447,8 @@ namespace SoftwareDevelopmentCompany {
                 base.Columns.Add(this.columnIdProject);
                 this.columnRole = new global::System.Data.DataColumn("Role", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRole);
+                this.columnAboutEmployee = new global::System.Data.DataColumn("AboutEmployee", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAboutEmployee);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdStaff,
                                 this.columnIdProject}, true));
@@ -1282,6 +1456,7 @@ namespace SoftwareDevelopmentCompany {
                 this.columnIdProject.AllowDBNull = false;
                 this.columnRole.AllowDBNull = false;
                 this.columnRole.MaxLength = 50;
+                this.columnAboutEmployee.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1300,6 +1475,12 @@ namespace SoftwareDevelopmentCompany {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(RoleStaffRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitExpressions() {
+                this.AboutEmployeeColumn.Expression = "Parent(FK_RoleStaff_Staff).Info";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1427,12 +1608,23 @@ namespace SoftwareDevelopmentCompany {
             
             private global::System.Data.DataColumn columnPhoto;
             
+            private global::System.Data.DataColumn columnInfo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public StaffDataTable() {
+            public StaffDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public StaffDataTable(bool initExpressions) {
                 this.TableName = "Staff";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -1510,6 +1702,14 @@ namespace SoftwareDevelopmentCompany {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn InfoColumn {
+                get {
+                    return this.columnInfo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1545,6 +1745,23 @@ namespace SoftwareDevelopmentCompany {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public StaffRow AddStaffRow(string FullName, string Post, int WorkExperience, string Paul, byte[] Photo, string Info) {
+                StaffRow rowStaffRow = ((StaffRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        FullName,
+                        Post,
+                        WorkExperience,
+                        Paul,
+                        Photo,
+                        Info};
+                rowStaffRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowStaffRow);
+                return rowStaffRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public StaffRow AddStaffRow(string FullName, string Post, int WorkExperience, string Paul, byte[] Photo) {
                 StaffRow rowStaffRow = ((StaffRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -1553,7 +1770,8 @@ namespace SoftwareDevelopmentCompany {
                         Post,
                         WorkExperience,
                         Paul,
-                        Photo};
+                        Photo,
+                        null};
                 rowStaffRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStaffRow);
                 return rowStaffRow;
@@ -1589,6 +1807,7 @@ namespace SoftwareDevelopmentCompany {
                 this.columnWorkExperience = base.Columns["WorkExperience"];
                 this.columnPaul = base.Columns["Paul"];
                 this.columnPhoto = base.Columns["Photo"];
+                this.columnInfo = base.Columns["Info"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1606,6 +1825,8 @@ namespace SoftwareDevelopmentCompany {
                 base.Columns.Add(this.columnPaul);
                 this.columnPhoto = new global::System.Data.DataColumn("Photo", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPhoto);
+                this.columnInfo = new global::System.Data.DataColumn("Info", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInfo);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdStaff}, true));
                 this.columnIdStaff.AutoIncrement = true;
@@ -1618,6 +1839,7 @@ namespace SoftwareDevelopmentCompany {
                 this.columnPost.AllowDBNull = false;
                 this.columnPost.MaxLength = 50;
                 this.columnPaul.MaxLength = 10;
+                this.columnInfo.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1636,6 +1858,12 @@ namespace SoftwareDevelopmentCompany {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(StaffRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitExpressions() {
+                this.InfoColumn.Expression = "IdStaff+\' \'+FullName+\' - \'+Post";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2442,6 +2670,34 @@ namespace SoftwareDevelopmentCompany {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string InformationOrganization {
+                get {
+                    try {
+                        return ((string)(this[this.tableClient.InformationOrganizationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'InformationOrganization\' в таблице \'Client\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableClient.InformationOrganizationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsInformationOrganizationNull() {
+                return this.IsNull(this.tableClient.InformationOrganizationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetInformationOrganizationNull() {
+                this[this.tableClient.InformationOrganizationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ProjectRow[] GetProjectRows() {
                 if ((this.Table.ChildRelations["FK_Project_Client"] == null)) {
                     return new ProjectRow[0];
@@ -2549,6 +2805,38 @@ namespace SoftwareDevelopmentCompany {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal RemainingMoney {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableProject.RemainingMoneyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'RemainingMoney\' в таблице \'Project\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProject.RemainingMoneyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Client {
+                get {
+                    try {
+                        return ((string)(this[this.tableProject.ClientColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Client\' в таблице \'Project\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProject.ClientColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ClientRow ClientRow {
                 get {
                     return ((ClientRow)(this.GetParentRow(this.Table.ParentRelations["FK_Project_Client"])));
@@ -2592,6 +2880,30 @@ namespace SoftwareDevelopmentCompany {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetActOfImplementationNull() {
                 this[this.tableProject.ActOfImplementationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRemainingMoneyNull() {
+                return this.IsNull(this.tableProject.RemainingMoneyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRemainingMoneyNull() {
+                this[this.tableProject.RemainingMoneyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsClientNull() {
+                return this.IsNull(this.tableProject.ClientColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetClientNull() {
+                this[this.tableProject.ClientColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2677,6 +2989,22 @@ namespace SoftwareDevelopmentCompany {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string AboutEmployee {
+                get {
+                    try {
+                        return ((string)(this[this.tableRoleStaff.AboutEmployeeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'AboutEmployee\' в таблице \'RoleStaff\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRoleStaff.AboutEmployeeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ProjectRow ProjectRow {
                 get {
                     return ((ProjectRow)(this.GetParentRow(this.Table.ParentRelations["FK_RoleStaff_Project"])));
@@ -2695,6 +3023,18 @@ namespace SoftwareDevelopmentCompany {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_RoleStaff_Staff"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsAboutEmployeeNull() {
+                return this.IsNull(this.tableRoleStaff.AboutEmployeeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetAboutEmployeeNull() {
+                this[this.tableRoleStaff.AboutEmployeeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2795,6 +3135,22 @@ namespace SoftwareDevelopmentCompany {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Info {
+                get {
+                    try {
+                        return ((string)(this[this.tableStaff.InfoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Info\' в таблице \'Staff\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStaff.InfoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsWorkExperienceNull() {
                 return this.IsNull(this.tableStaff.WorkExperienceColumn);
             }
@@ -2827,6 +3183,18 @@ namespace SoftwareDevelopmentCompany {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetPhotoNull() {
                 this[this.tableStaff.PhotoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsInfoNull() {
+                return this.IsNull(this.tableStaff.InfoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetInfoNull() {
+                this[this.tableStaff.InfoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3437,7 +3805,7 @@ SELECT IdClient, OrganizationName, FullNameDirector FROM Client WHERE (IdClient 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual SoftwareDevelopmentCompanyDataSet.ClientDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SoftwareDevelopmentCompanyDataSet.ClientDataTable dataTable = new SoftwareDevelopmentCompanyDataSet.ClientDataTable();
+            SoftwareDevelopmentCompanyDataSet.ClientDataTable dataTable = new SoftwareDevelopmentCompanyDataSet.ClientDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3804,7 +4172,7 @@ SELECT IdProject, CashCosts, Budget, Title, ActOfImplementation, IdClient FROM P
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual SoftwareDevelopmentCompanyDataSet.ProjectDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SoftwareDevelopmentCompanyDataSet.ProjectDataTable dataTable = new SoftwareDevelopmentCompanyDataSet.ProjectDataTable();
+            SoftwareDevelopmentCompanyDataSet.ProjectDataTable dataTable = new SoftwareDevelopmentCompanyDataSet.ProjectDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4216,7 +4584,7 @@ SELECT IdStaff, IdProject, Role FROM RoleStaff WHERE (IdProject = @IdProject) AN
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual SoftwareDevelopmentCompanyDataSet.RoleStaffDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SoftwareDevelopmentCompanyDataSet.RoleStaffDataTable dataTable = new SoftwareDevelopmentCompanyDataSet.RoleStaffDataTable();
+            SoftwareDevelopmentCompanyDataSet.RoleStaffDataTable dataTable = new SoftwareDevelopmentCompanyDataSet.RoleStaffDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4561,7 +4929,7 @@ SELECT IdStaff, FullName, Post, WorkExperience, Paul, Photo FROM Staff WHERE (Id
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual SoftwareDevelopmentCompanyDataSet.StaffDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SoftwareDevelopmentCompanyDataSet.StaffDataTable dataTable = new SoftwareDevelopmentCompanyDataSet.StaffDataTable();
+            SoftwareDevelopmentCompanyDataSet.StaffDataTable dataTable = new SoftwareDevelopmentCompanyDataSet.StaffDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

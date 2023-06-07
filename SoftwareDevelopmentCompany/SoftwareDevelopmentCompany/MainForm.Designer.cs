@@ -39,6 +39,9 @@
             this.ClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DocumentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ProjectRoleStaffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TechnicalDocumentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ContextMenuStripMainForm = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.FileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,12 +51,18 @@
             this.ClientToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.DocumentsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ProjectToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ProjectRoleStaffToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.TestToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMainForm = new System.Windows.Forms.ToolStrip();
             this.ToolStripButtonExit = new System.Windows.Forms.ToolStripButton();
             this.ToolStripButtonAboutTheProgram = new System.Windows.Forms.ToolStripButton();
             this.StaffToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ClientToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ProjectToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.ProjectRoleStaffToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.TestToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.technicalDocumentationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.TDToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.MenuStripMainForm.SuspendLayout();
             this.ContextMenuStripMainForm.SuspendLayout();
             this.ToolStripMainForm.SuspendLayout();
@@ -68,7 +77,7 @@
             this.DocumentsToolStripMenuItem});
             this.MenuStripMainForm.Location = new System.Drawing.Point(0, 0);
             this.MenuStripMainForm.Name = "MenuStripMainForm";
-            this.MenuStripMainForm.Size = new System.Drawing.Size(800, 30);
+            this.MenuStripMainForm.Size = new System.Drawing.Size(800, 28);
             this.MenuStripMainForm.TabIndex = 0;
             this.MenuStripMainForm.Text = "menuStrip1";
             // 
@@ -78,7 +87,7 @@
             this.ExitToolStripMenuItem,
             this.AboutTheProgramToolStripMenuItem});
             this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
-            this.FileToolStripMenuItem.Size = new System.Drawing.Size(46, 26);
+            this.FileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
             this.FileToolStripMenuItem.Text = "File";
             // 
             // ExitToolStripMenuItem
@@ -105,7 +114,7 @@
             this.StaffToolStripMenuItem,
             this.ClientToolStripMenuItem});
             this.ReferencesToolStripMenuItem.Name = "ReferencesToolStripMenuItem";
-            this.ReferencesToolStripMenuItem.Size = new System.Drawing.Size(95, 26);
+            this.ReferencesToolStripMenuItem.Size = new System.Drawing.Size(95, 24);
             this.ReferencesToolStripMenuItem.Text = "References";
             // 
             // StaffToolStripMenuItem
@@ -127,18 +136,45 @@
             // DocumentsToolStripMenuItem
             // 
             this.DocumentsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ProjectToolStripMenuItem});
+            this.ProjectToolStripMenuItem,
+            this.ProjectRoleStaffToolStripMenuItem,
+            this.TestToolStripMenuItem,
+            this.TechnicalDocumentationToolStripMenuItem});
             this.DocumentsToolStripMenuItem.Name = "DocumentsToolStripMenuItem";
-            this.DocumentsToolStripMenuItem.Size = new System.Drawing.Size(98, 26);
+            this.DocumentsToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
             this.DocumentsToolStripMenuItem.Text = "Documents";
             // 
             // ProjectToolStripMenuItem
             // 
             this.ProjectToolStripMenuItem.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconProject;
             this.ProjectToolStripMenuItem.Name = "ProjectToolStripMenuItem";
-            this.ProjectToolStripMenuItem.Size = new System.Drawing.Size(138, 26);
+            this.ProjectToolStripMenuItem.Size = new System.Drawing.Size(258, 26);
             this.ProjectToolStripMenuItem.Text = "Project";
             this.ProjectToolStripMenuItem.Click += new System.EventHandler(this.ProjectToolStripMenuItem_Click);
+            // 
+            // ProjectRoleStaffToolStripMenuItem
+            // 
+            this.ProjectRoleStaffToolStripMenuItem.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconProjectRoleStaff;
+            this.ProjectRoleStaffToolStripMenuItem.Name = "ProjectRoleStaffToolStripMenuItem";
+            this.ProjectRoleStaffToolStripMenuItem.Size = new System.Drawing.Size(258, 26);
+            this.ProjectRoleStaffToolStripMenuItem.Text = "Project role staff";
+            this.ProjectRoleStaffToolStripMenuItem.Click += new System.EventHandler(this.ProjectRoleStaffToolStripMenuItem_Click);
+            // 
+            // TestToolStripMenuItem
+            // 
+            this.TestToolStripMenuItem.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconTest;
+            this.TestToolStripMenuItem.Name = "TestToolStripMenuItem";
+            this.TestToolStripMenuItem.Size = new System.Drawing.Size(258, 26);
+            this.TestToolStripMenuItem.Text = "Test";
+            this.TestToolStripMenuItem.Click += new System.EventHandler(this.TestToolStripMenuItem_Click);
+            // 
+            // TechnicalDocumentationToolStripMenuItem
+            // 
+            this.TechnicalDocumentationToolStripMenuItem.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconDocumentation;
+            this.TechnicalDocumentationToolStripMenuItem.Name = "TechnicalDocumentationToolStripMenuItem";
+            this.TechnicalDocumentationToolStripMenuItem.Size = new System.Drawing.Size(258, 26);
+            this.TechnicalDocumentationToolStripMenuItem.Text = "Technical documentation";
+            this.TechnicalDocumentationToolStripMenuItem.Click += new System.EventHandler(this.TechnicalDocumentationToolStripMenuItem_Click);
             // 
             // ContextMenuStripMainForm
             // 
@@ -148,7 +184,7 @@
             this.ReferencesToolStripMenuItem1,
             this.DocumentsToolStripMenuItem1});
             this.ContextMenuStripMainForm.Name = "ContextMenuStripMainForm";
-            this.ContextMenuStripMainForm.Size = new System.Drawing.Size(154, 76);
+            this.ContextMenuStripMainForm.Size = new System.Drawing.Size(211, 104);
             // 
             // FileToolStripMenuItem1
             // 
@@ -156,7 +192,7 @@
             this.ExitToolStripMenuItem1,
             this.AboutToolStripMenuItem});
             this.FileToolStripMenuItem1.Name = "FileToolStripMenuItem1";
-            this.FileToolStripMenuItem1.Size = new System.Drawing.Size(153, 24);
+            this.FileToolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
             this.FileToolStripMenuItem1.Text = "File";
             // 
             // ExitToolStripMenuItem1
@@ -181,7 +217,7 @@
             this.StaffToolStripMenuItem1,
             this.ClientToolStripMenuItem1});
             this.ReferencesToolStripMenuItem1.Name = "ReferencesToolStripMenuItem1";
-            this.ReferencesToolStripMenuItem1.Size = new System.Drawing.Size(153, 24);
+            this.ReferencesToolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
             this.ReferencesToolStripMenuItem1.Text = "References";
             // 
             // StaffToolStripMenuItem1
@@ -203,18 +239,37 @@
             // DocumentsToolStripMenuItem1
             // 
             this.DocumentsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ProjectToolStripMenuItem1});
+            this.ProjectToolStripMenuItem1,
+            this.ProjectRoleStaffToolStripMenuItem1,
+            this.TestToolStripMenuItem1,
+            this.technicalDocumentationToolStripMenuItem1});
             this.DocumentsToolStripMenuItem1.Name = "DocumentsToolStripMenuItem1";
-            this.DocumentsToolStripMenuItem1.Size = new System.Drawing.Size(153, 24);
+            this.DocumentsToolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
             this.DocumentsToolStripMenuItem1.Text = "Documents";
             // 
             // ProjectToolStripMenuItem1
             // 
             this.ProjectToolStripMenuItem1.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconProject;
             this.ProjectToolStripMenuItem1.Name = "ProjectToolStripMenuItem1";
-            this.ProjectToolStripMenuItem1.Size = new System.Drawing.Size(138, 26);
+            this.ProjectToolStripMenuItem1.Size = new System.Drawing.Size(258, 26);
             this.ProjectToolStripMenuItem1.Text = "Project";
             this.ProjectToolStripMenuItem1.Click += new System.EventHandler(this.ProjectToolStripMenuItem_Click);
+            // 
+            // ProjectRoleStaffToolStripMenuItem1
+            // 
+            this.ProjectRoleStaffToolStripMenuItem1.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconProjectRoleStaff;
+            this.ProjectRoleStaffToolStripMenuItem1.Name = "ProjectRoleStaffToolStripMenuItem1";
+            this.ProjectRoleStaffToolStripMenuItem1.Size = new System.Drawing.Size(258, 26);
+            this.ProjectRoleStaffToolStripMenuItem1.Text = "Project role staff";
+            this.ProjectRoleStaffToolStripMenuItem1.Click += new System.EventHandler(this.ProjectRoleStaffToolStripMenuItem_Click);
+            // 
+            // TestToolStripMenuItem1
+            // 
+            this.TestToolStripMenuItem1.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconTest;
+            this.TestToolStripMenuItem1.Name = "TestToolStripMenuItem1";
+            this.TestToolStripMenuItem1.Size = new System.Drawing.Size(258, 26);
+            this.TestToolStripMenuItem1.Text = "Test";
+            this.TestToolStripMenuItem1.Click += new System.EventHandler(this.TestToolStripMenuItem_Click);
             // 
             // ToolStripMainForm
             // 
@@ -224,10 +279,13 @@
             this.ToolStripButtonAboutTheProgram,
             this.StaffToolStripButton,
             this.ClientToolStripButton,
-            this.ProjectToolStripButton});
-            this.ToolStripMainForm.Location = new System.Drawing.Point(0, 30);
+            this.ProjectToolStripButton,
+            this.ProjectRoleStaffToolStripButton,
+            this.TestToolStripButton,
+            this.TDToolStripButton});
+            this.ToolStripMainForm.Location = new System.Drawing.Point(0, 28);
             this.ToolStripMainForm.Name = "ToolStripMainForm";
-            this.ToolStripMainForm.Size = new System.Drawing.Size(800, 31);
+            this.ToolStripMainForm.Size = new System.Drawing.Size(800, 27);
             this.ToolStripMainForm.TabIndex = 2;
             this.ToolStripMainForm.Text = "toolStrip1";
             // 
@@ -237,7 +295,7 @@
             this.ToolStripButtonExit.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconExit;
             this.ToolStripButtonExit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolStripButtonExit.Name = "ToolStripButtonExit";
-            this.ToolStripButtonExit.Size = new System.Drawing.Size(29, 28);
+            this.ToolStripButtonExit.Size = new System.Drawing.Size(29, 24);
             this.ToolStripButtonExit.Text = "ToolStripButtonExit";
             this.ToolStripButtonExit.ToolTipText = "Close the program";
             this.ToolStripButtonExit.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
@@ -248,7 +306,7 @@
             this.ToolStripButtonAboutTheProgram.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconInfo;
             this.ToolStripButtonAboutTheProgram.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolStripButtonAboutTheProgram.Name = "ToolStripButtonAboutTheProgram";
-            this.ToolStripButtonAboutTheProgram.Size = new System.Drawing.Size(29, 28);
+            this.ToolStripButtonAboutTheProgram.Size = new System.Drawing.Size(29, 24);
             this.ToolStripButtonAboutTheProgram.Text = "ToolStripButtonAboutTheProgram";
             this.ToolStripButtonAboutTheProgram.ToolTipText = "About the program";
             this.ToolStripButtonAboutTheProgram.Click += new System.EventHandler(this.AboutTheProgramToolStripMenuItem_Click);
@@ -259,7 +317,7 @@
             this.StaffToolStripButton.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconStaff;
             this.StaffToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.StaffToolStripButton.Name = "StaffToolStripButton";
-            this.StaffToolStripButton.Size = new System.Drawing.Size(29, 28);
+            this.StaffToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.StaffToolStripButton.Text = "List of staff";
             this.StaffToolStripButton.Click += new System.EventHandler(this.StaffToolStripMenuItem_Click);
             // 
@@ -269,7 +327,7 @@
             this.ClientToolStripButton.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconClient;
             this.ClientToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ClientToolStripButton.Name = "ClientToolStripButton";
-            this.ClientToolStripButton.Size = new System.Drawing.Size(29, 28);
+            this.ClientToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.ClientToolStripButton.Text = "List of client";
             this.ClientToolStripButton.Click += new System.EventHandler(this.ClientToolStripMenuItem_Click);
             // 
@@ -279,9 +337,47 @@
             this.ProjectToolStripButton.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconProject;
             this.ProjectToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ProjectToolStripButton.Name = "ProjectToolStripButton";
-            this.ProjectToolStripButton.Size = new System.Drawing.Size(29, 28);
+            this.ProjectToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.ProjectToolStripButton.Text = "List of project";
             this.ProjectToolStripButton.Click += new System.EventHandler(this.ProjectToolStripMenuItem_Click);
+            // 
+            // ProjectRoleStaffToolStripButton
+            // 
+            this.ProjectRoleStaffToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ProjectRoleStaffToolStripButton.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconProjectRoleStaff;
+            this.ProjectRoleStaffToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ProjectRoleStaffToolStripButton.Name = "ProjectRoleStaffToolStripButton";
+            this.ProjectRoleStaffToolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.ProjectRoleStaffToolStripButton.Text = "Project with staff roles";
+            this.ProjectRoleStaffToolStripButton.Click += new System.EventHandler(this.ProjectRoleStaffToolStripMenuItem_Click);
+            // 
+            // TestToolStripButton
+            // 
+            this.TestToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TestToolStripButton.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconTest;
+            this.TestToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TestToolStripButton.Name = "TestToolStripButton";
+            this.TestToolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.TestToolStripButton.Text = "List of tests";
+            this.TestToolStripButton.Click += new System.EventHandler(this.TestToolStripMenuItem_Click);
+            // 
+            // technicalDocumentationToolStripMenuItem1
+            // 
+            this.technicalDocumentationToolStripMenuItem1.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconDocumentation;
+            this.technicalDocumentationToolStripMenuItem1.Name = "technicalDocumentationToolStripMenuItem1";
+            this.technicalDocumentationToolStripMenuItem1.Size = new System.Drawing.Size(258, 26);
+            this.technicalDocumentationToolStripMenuItem1.Text = "Technical documentation";
+            this.technicalDocumentationToolStripMenuItem1.Click += new System.EventHandler(this.TechnicalDocumentationToolStripMenuItem_Click);
+            // 
+            // TDToolStripButton
+            // 
+            this.TDToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TDToolStripButton.Image = global::SoftwareDevelopmentCompany.Properties.Resources.IconDocumentation;
+            this.TDToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TDToolStripButton.Name = "TDToolStripButton";
+            this.TDToolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.TDToolStripButton.Text = "List of technical documentations";
+            this.TDToolStripButton.Click += new System.EventHandler(this.TechnicalDocumentationToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -335,6 +431,15 @@
         private System.Windows.Forms.ToolStripMenuItem DocumentsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ProjectToolStripMenuItem1;
         private System.Windows.Forms.ToolStripButton ProjectToolStripButton;
+        private System.Windows.Forms.ToolStripMenuItem ProjectRoleStaffToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ProjectRoleStaffToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripButton ProjectRoleStaffToolStripButton;
+        private System.Windows.Forms.ToolStripMenuItem TestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TestToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripButton TestToolStripButton;
+        private System.Windows.Forms.ToolStripMenuItem TechnicalDocumentationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem technicalDocumentationToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripButton TDToolStripButton;
     }
 }
 

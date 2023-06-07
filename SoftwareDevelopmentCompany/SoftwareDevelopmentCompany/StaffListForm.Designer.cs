@@ -36,10 +36,6 @@
             System.Windows.Forms.Label PaulLabel;
             System.Windows.Forms.Label PhotoLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffListForm));
-            this.softwareDevelopmentCompanyDataSet = new SoftwareDevelopmentCompany.SoftwareDevelopmentCompanyDataSet();
-            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.staffTableAdapter = new SoftwareDevelopmentCompany.SoftwareDevelopmentCompanyDataSetTableAdapters.StaffTableAdapter();
-            this.tableAdapterManager = new SoftwareDevelopmentCompany.SoftwareDevelopmentCompanyDataSetTableAdapters.TableAdapterManager();
             this.staffBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -61,17 +57,21 @@
             this.PhotoPictureBox = new System.Windows.Forms.PictureBox();
             this.ButtonOpenPhoto = new System.Windows.Forms.Button();
             this.OpenFileDialogPhoto = new System.Windows.Forms.OpenFileDialog();
+            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.softwareDevelopmentCompanyDataSet = new SoftwareDevelopmentCompany.SoftwareDevelopmentCompanyDataSet();
+            this.staffTableAdapter = new SoftwareDevelopmentCompany.SoftwareDevelopmentCompanyDataSetTableAdapters.StaffTableAdapter();
+            this.tableAdapterManager = new SoftwareDevelopmentCompany.SoftwareDevelopmentCompanyDataSetTableAdapters.TableAdapterManager();
             IdStaffLabel = new System.Windows.Forms.Label();
             FullNameLabel = new System.Windows.Forms.Label();
             PostLabel = new System.Windows.Forms.Label();
             WorkExperienceLabel = new System.Windows.Forms.Label();
             PaulLabel = new System.Windows.Forms.Label();
             PhotoLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.softwareDevelopmentCompanyDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingNavigator)).BeginInit();
             this.staffBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PhotoPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.softwareDevelopmentCompanyDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // IdStaffLabel
@@ -128,31 +128,6 @@
             PhotoLabel.TabIndex = 11;
             PhotoLabel.Text = "Photo:";
             // 
-            // softwareDevelopmentCompanyDataSet
-            // 
-            this.softwareDevelopmentCompanyDataSet.DataSetName = "SoftwareDevelopmentCompanyDataSet";
-            this.softwareDevelopmentCompanyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // staffBindingSource
-            // 
-            this.staffBindingSource.DataMember = "Staff";
-            this.staffBindingSource.DataSource = this.softwareDevelopmentCompanyDataSet;
-            // 
-            // staffTableAdapter
-            // 
-            this.staffTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.ClientTableAdapter = null;
-            this.tableAdapterManager.ProjectTableAdapter = null;
-            this.tableAdapterManager.RoleStaffTableAdapter = null;
-            this.tableAdapterManager.StaffTableAdapter = this.staffTableAdapter;
-            this.tableAdapterManager.TechnicalDocumentationTableAdapter = null;
-            this.tableAdapterManager.TestTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = SoftwareDevelopmentCompany.SoftwareDevelopmentCompanyDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
             // staffBindingNavigator
             // 
             this.staffBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
@@ -181,7 +156,7 @@
             this.staffBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.staffBindingNavigator.Name = "staffBindingNavigator";
             this.staffBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.staffBindingNavigator.Size = new System.Drawing.Size(569, 31);
+            this.staffBindingNavigator.Size = new System.Drawing.Size(617, 27);
             this.staffBindingNavigator.TabIndex = 0;
             this.staffBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -191,7 +166,7 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Add";
             // 
             // bindingNavigatorCountItem
@@ -348,11 +323,36 @@
             // 
             this.OpenFileDialogPhoto.FileName = "openFileDialog1";
             // 
+            // staffBindingSource
+            // 
+            this.staffBindingSource.DataMember = "Staff";
+            this.staffBindingSource.DataSource = this.softwareDevelopmentCompanyDataSet;
+            // 
+            // softwareDevelopmentCompanyDataSet
+            // 
+            this.softwareDevelopmentCompanyDataSet.DataSetName = "SoftwareDevelopmentCompanyDataSet";
+            this.softwareDevelopmentCompanyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // staffTableAdapter
+            // 
+            this.staffTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.ClientTableAdapter = null;
+            this.tableAdapterManager.ProjectTableAdapter = null;
+            this.tableAdapterManager.RoleStaffTableAdapter = null;
+            this.tableAdapterManager.StaffTableAdapter = this.staffTableAdapter;
+            this.tableAdapterManager.TechnicalDocumentationTableAdapter = null;
+            this.tableAdapterManager.TestTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = SoftwareDevelopmentCompany.SoftwareDevelopmentCompanyDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // StaffListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(569, 230);
+            this.ClientSize = new System.Drawing.Size(617, 230);
             this.Controls.Add(this.ButtonOpenPhoto);
             this.Controls.Add(IdStaffLabel);
             this.Controls.Add(this.IdStaffTextBox);
@@ -370,12 +370,13 @@
             this.Name = "StaffListForm";
             this.Text = "List of staff";
             this.Load += new System.EventHandler(this.DishesListForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.softwareDevelopmentCompanyDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
+            this.Shown += new System.EventHandler(this.StaffListForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingNavigator)).EndInit();
             this.staffBindingNavigator.ResumeLayout(false);
             this.staffBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PhotoPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.softwareDevelopmentCompanyDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

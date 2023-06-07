@@ -83,6 +83,16 @@ namespace SoftwareDevelopmentCompany.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IconDocumentation {
+            get {
+                object obj = ResourceManager.GetObject("IconDocumentation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IconExit {
             get {
                 object obj = ResourceManager.GetObject("IconExit", resourceCulture);
@@ -113,9 +123,39 @@ namespace SoftwareDevelopmentCompany.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IconProjectRoleStaff {
+            get {
+                object obj = ResourceManager.GetObject("IconProjectRoleStaff", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconSearch {
+            get {
+                object obj = ResourceManager.GetObject("IconSearch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IconStaff {
             get {
                 object obj = ResourceManager.GetObject("IconStaff", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconTest {
+            get {
+                object obj = ResourceManager.GetObject("IconTest", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

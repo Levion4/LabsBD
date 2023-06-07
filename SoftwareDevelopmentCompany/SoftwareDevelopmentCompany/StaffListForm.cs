@@ -16,6 +16,8 @@ namespace SoftwareDevelopmentCompany
 
         private static StaffListForm f;
 
+        int idCurrent = -1;
+
         public static StaffListForm fd
         {
             get
@@ -34,8 +36,21 @@ namespace SoftwareDevelopmentCompany
             InitializeComponent();
         }
 
+        public int ShowSelectForm(int idEmployee, out string role)
+        {
+            idCurrent = idEmployee;
+            ShowDialog();
+            role = ((DataRowView)staffBindingSource.Current)
+                ["Post"].ToString();
+
+            return
+            (int)((DataRowView)staffBindingSource.Current)["IdStaff"];
+        }
+
+
         public void ShowForm()
         {
+            staffBindingSource.Position = 0;
             Show();
             Activate();
         }
@@ -94,6 +109,12 @@ namespace SoftwareDevelopmentCompany
             {
                 _fileImage = "";
             }
+        }
+
+        private void StaffListForm_Shown(object sender, EventArgs e)
+        {
+            staffBindingSource.Position =
+                staffBindingSource.Find("IdStaff", idCurrent);
         }
     }
 }
